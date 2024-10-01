@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* shortcut classes for tailwind animated */
+@layer components {
+  .hover-pulse {
+    @apply hover:animate-pulse motion-reduce:animate-none;
+  }
+  .hover-jump {
+    @apply hover:animate-jump motion-reduce:animate-none;
+  }
+}
