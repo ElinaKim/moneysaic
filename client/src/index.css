@@ -1,6 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* setting font family */
+@layer base {
+  @font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(./assets/fonts/Rubik-Regular.ttf) format('truetype');
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(./assets/fonts/Rubik-SemiBold.ttf) format('truetype');
+  }
+}
+
 /* shortcut classes for tailwind animated */
 @layer components {
   .hover-pulse {
