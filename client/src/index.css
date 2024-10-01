@@ -32,3 +32,17 @@
     @apply hover:animate-jump motion-reduce:animate-none;
   }
 }
+
+.react-datepicker__month-container {
+  font-family: 'Rubik';
+}
+
+.react-datepicker .react-datepicker__header, 
+.react-datepicker .react-datepicker__month-text--keyboard-selected{
+  background-color: #544686;
+  color: #FFFFFF;
+}
+
+/* .react-datepicker__input-container--selected {
+  border: solid red 1px;
+} */
