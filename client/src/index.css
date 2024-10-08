@@ -31,6 +31,50 @@
   .hover-jump {
     @apply hover:animate-jump motion-reduce:animate-none;
   }
+  body{
+    padding-bottom: 5rem;
+  }
+
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    outline: none;
+    opacity: 0.7;
+    background: linear-gradient(to right, #544686 40%, #d3d3d3 40%);
+    transition: opacity 0.2s;
+    border-radius: 5px;
+  }
+  
+  .slider::-webkit-slider-runnable-track {
+    height: 25px;
+    background: linear-gradient(to right, #63B665 40%, #d3d3d3 40%);
+    border-radius: 5px;
+  }
+  
+  .slider::-moz-range-track {
+    height: 25px;
+    background: linear-gradient(to right, #63B665 40%, #d3d3d3 40%);
+    border-radius: 5px;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2.5px;
+    height: 25px;
+    background: #54AD56;
+    cursor: pointer;
+    /* border-radius: 50%; */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+  }  
 }
 
 .react-datepicker__month-container {
