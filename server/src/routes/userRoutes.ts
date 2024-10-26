@@ -37,6 +37,22 @@ router.post('/register', async (req, res) => {
     }
 })
 
+router.post('/login', async (req: Request, res: Response) => {
+    const { email, password } = req.body
+    if (!email || !password) {
+        res.status(400).json('Email and password are required')
+    }
+    const user = await findUserByEmail(email)
+    const pwdMatch = await bcrypt.compare(password, user.password)
+
+    if (user && pwdMatch) {
+        const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET!, { expiresIn: '24h' })
+        res.json(token)
+    } else {
+        res.status(401).json('Error generating token, check if user and passwords match')
+    }
+})
+
 router.get('/test', (req, res) => {
     res.send('User route test successful');
 });
