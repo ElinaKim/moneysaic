@@ -1,15 +1,34 @@
-import express, { Request, Response } from 'express'
+import express from 'express';
+import http from 'http';
+import cors from 'cors'
 import dotenv from 'dotenv'
+import userRoutes from './routes/userRoutes'
 
 dotenv.config()
-const app = express()
 
-const PORT = process.env.PORT
+const app = express();
+const server = http.createServer(app);
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello, TS + Node.js + Express!')
-})
+app.use(cors())
+app.use(express.json())
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`)
-})
+const PORT = process.env.PORT;
+
+app.get('/test', (req, res) => {
+    res.send('Basic test route works!');
+});
+
+app.use('/users', userRoutes)
+
+app.use((req, res, next) => {
+    console.log(`Incoming request: ${req.method} ${req.url}`);
+    next();
+});
+
+try {
+    server.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+} catch (error) {
+    console.error('Server failed to start:', error);
+}

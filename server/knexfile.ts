@@ -2,9 +2,6 @@ import { Knex } from "knex";
 import * as dotenv from 'dotenv'
 
 dotenv.config()
-
-console.log(process.env.DB_PASSWORD)
-
 const config: { [key: string]: Knex.Config } = {
     development: {
         client: 'mysql2',
