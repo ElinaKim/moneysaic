@@ -3,6 +3,7 @@ import http from 'http';
 import cors from 'cors'
 import dotenv from 'dotenv'
 import userRoutes from './routes/userRoutes'
+import transactionRoutes from './routes/transactionRoutes'
 
 dotenv.config()
 
@@ -11,6 +12,7 @@ const server = http.createServer(app);
 
 app.use(cors())
 app.use(express.json())
+app.use(express.static('public'))
 
 const PORT = process.env.PORT;
 
@@ -19,6 +21,7 @@ app.get('/test', (req, res) => {
 });
 
 app.use('/users', userRoutes)
+app.use('/transactions', transactionRoutes)
 
 app.use((req, res, next) => {
     console.log(`Incoming request: ${req.method} ${req.url}`);
