@@ -7,10 +7,7 @@ import type { User } from '../../types/user'
 import type { AuthenticatedReq } from '../../types/authenticatedReq'
 import { findUserByEmail } from '../utils/userModel'
 
-
 const router = Router()
-console.log("User routes initialized");
-
 
 router.post('/register', async (req, res) => {
     console.log('Received register request:', req.body);
