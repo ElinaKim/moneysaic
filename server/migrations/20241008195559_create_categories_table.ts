@@ -6,6 +6,7 @@ export async function up(knex: Knex): Promise<void> {
         table.increments("id").primary()
         table.string("category_name").notNullable()
         table.enu("type", ["income", "expense"]).notNullable()
+        table.string("icon");
     })
 }
 
